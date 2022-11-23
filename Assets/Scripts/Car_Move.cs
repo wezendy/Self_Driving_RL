@@ -18,7 +18,7 @@ public class Car_Move : MonoBehaviour
     float rotate, currentRotate;
 
     [Header("Parameters")]
-    public float acceleration = 30f;
+    public float acceleration = 20f;
     public float steering = 80f;
     public float gravity = 10f;
     public LayerMask layerMask;
@@ -44,11 +44,11 @@ public class Car_Move : MonoBehaviour
 
     public void AnimateKart(float input)
     {
-        carModel.localEulerAngles = Vector3.Lerp(carModel.localEulerAngles, new Vector3(0, 90 + (input * 15), carModel.localEulerAngles.z), .2f);
+        carModel.localEulerAngles = Vector3.Lerp(carModel.localEulerAngles, new Vector3(0, 0, carModel.localEulerAngles.z), .2f);
 
-        frontWheels.localEulerAngles = new Vector3(0, (input * 15), frontWheels.localEulerAngles.z);
-        frontWheels.localEulerAngles += new Vector3(0, 0, sphere.velocity.magnitude / 2);
-        backWheels.localEulerAngles += new Vector3(0, 0, sphere.velocity.magnitude / 2);
+        frontWheels.localEulerAngles = new Vector3(0, (input * 2), frontWheels.localEulerAngles.z);
+        frontWheels.localEulerAngles += new Vector3(0, 0, 0);
+        backWheels.localEulerAngles += new Vector3(0, 0, 0);
 
         //steeringWheel.localEulerAngles = new Vector3(-25, 90, ((input * 45)));
     }
