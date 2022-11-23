@@ -1,21 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    private TrackCheckpoints trackCheckpoints;
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Player>(out Player player)) {
-            trackCheckpoints.PlayerTroughChechkpoint(this);
+        if (other.GetComponent<CheckpointManager>() != null)
+        {
+            other.GetComponent<CheckpointManager>().CheckPointReached(this);
         }
     }
-
-    public void SetTrackCheckpoints(TrackCheckpoints trackCheckpoints)
-    {
-        this.trackCheckpoints = trackCheckpoints;
-    }
-
 }

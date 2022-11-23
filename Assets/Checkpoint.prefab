@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2502720744856074342}
   - component: {fileID: 2502720744856074341}
   - component: {fileID: 2502720744856074340}
-  - component: {fileID: 2502720744856074339}
+  - component: {fileID: 1774707415657548941}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2502720744856074339
+--- !u!114 &1774707415657548941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
