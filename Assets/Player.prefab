@@ -2847,7 +2847,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 78f9f915a33134129b3cb06e79b3d090, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: SDAgent
@@ -2887,7 +2887,7 @@ MonoBehaviour:
   carModel: {fileID: 5490653950432579131}
   carNormal: {fileID: 7747269492614315743}
   box: {fileID: 2997079024522517854}
-  acceleration: 50
+  acceleration: 60
   steering: 30
   gravity: 25
   layerMask:

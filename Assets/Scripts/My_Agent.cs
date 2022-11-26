@@ -32,7 +32,7 @@ public class My_Agent : Agent
     {
         var Actions = actions.ContinuousActions;
 
-        carMove.ApplyAcceleration(Actions[1]);
+        carMove.ApplyAcceleration((Actions[1] + 1) / 2);
         carMove.Steer(Actions[0]);
         carMove.AnimateCar(Actions[0]);
     }

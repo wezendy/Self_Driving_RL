@@ -52,12 +52,12 @@ public class CheckpointManager : MonoBehaviour
 
         if (CurrentCheckpointIndex >= Checkpoints.Count)
         {
-            myAgent.AddReward(0.5f);
+            myAgent.AddReward(1f);
             myAgent.EndEpisode();
         }
         else
         {
-            myAgent.AddReward((0.5f) / Checkpoints.Count);
+            myAgent.AddReward((1f) / Checkpoints.Count);
             SetNextCheckpoint();
         }
     }
