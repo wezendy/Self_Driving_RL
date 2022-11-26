@@ -12,7 +12,7 @@ public class Car_Move : MonoBehaviour
 
     public Transform carModel;
     public Transform carNormal;
-    public Rigidbody sphere;
+    public Rigidbody box;
 
     float speed, currentSpeed;
     float rotate, currentRotate;
@@ -40,35 +40,34 @@ public class Car_Move : MonoBehaviour
         speed = 0f;
         currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f);
         rotate = 0f;
-    }
-
-    public void AnimateKart(float input)
+    } 
+    
+    public void AnimateCar(float input)
     {
         carModel.localEulerAngles = Vector3.Lerp(carModel.localEulerAngles, new Vector3(0, 0, carModel.localEulerAngles.z), .2f);
 
         frontWheels.localEulerAngles = new Vector3(0, (input * 2), frontWheels.localEulerAngles.z);
-        frontWheels.localEulerAngles += new Vector3(0, 0, 0);
+        frontWheels.localEulerAngles += new Vector3(0, 0, 0); //ez is itt mi a fasz idk
         backWheels.localEulerAngles += new Vector3(0, 0, 0);
 
-        //steeringWheel.localEulerAngles = new Vector3(-25, 90, ((input * 45)));
     }
 
     public void Respawn()
     {
         Vector3 pos = spawnPointManager.SelectRandomSpawnpoint();
-        sphere.MovePosition(pos);
+        box.MovePosition(pos);
         transform.position = pos - new Vector3(0, 0.4f, 0);
     }
 
     public void FixedUpdate()
     {
-        sphere.AddForce(-carModel.transform.right * currentSpeed, ForceMode.Acceleration);
+        box.AddForce(carModel.transform.forward * currentSpeed, ForceMode.Acceleration);
 
         //Gravity
-        sphere.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
+        box.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
 
         //Follow Collider
-        transform.position = sphere.transform.position - new Vector3(0, 0.4f, 0);
+        transform.position = box.transform.position - new Vector3(0, 0.4f, 0);
 
         //Steering
         transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0, transform.eulerAngles.y + currentRotate, 0), Time.deltaTime * 5f);
@@ -83,7 +82,7 @@ public class Car_Move : MonoBehaviour
 
     public void Steer(float steeringSignal)
     {
-        int steerDirection = steeringSignal > 0 ? 1 : -1;
+        int steerDirection = steeringSignal > 0 ? 1 : -1; 
         float steeringStrength = Mathf.Abs(steeringSignal);
 
         rotate = (steering * steerDirection) * steeringStrength;

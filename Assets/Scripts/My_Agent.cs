@@ -34,7 +34,7 @@ public class My_Agent : Agent
 
         carMove.ApplyAcceleration(Actions[1]);
         carMove.Steer(Actions[0]);
-        carMove.AnimateKart(Actions[0]);
+        carMove.AnimateCar(Actions[0]);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
